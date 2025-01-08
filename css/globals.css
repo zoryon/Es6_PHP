@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    padding: 6px;
+}
+
+.input-wrapper {
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6vh;
+}
+
+.radio-input-wrapper {
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+label {
+    font-size: .9rem;
+}
