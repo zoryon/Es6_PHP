@@ -28,3 +28,8 @@ html, body {
 label {
     font-size: .9rem;
 }
+
+th, td {
+    border: 1px solid black;
+    padding: 2px 30px;
+}

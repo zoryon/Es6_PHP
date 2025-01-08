@@ -10,50 +10,20 @@
 
     <!-- settings -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- title -->
-    <title>Results Page | PHP</title>
+    <title>Assessment Page | PHP</title>
 </head>
 
 <body>
     <?php
-        // validating
-        if ($_SERVER['REQUEST_METHOD'] != "POST") {
-            header("Location: index.html");
-            exit();
-        }
-
-        if (!isset($_POST['name'])) {
-            header("Location: index.html");
-            exit();
-        }
-
-        if (empty($_POST['name'])) {
-            header("Location: index.html");
-            exit();
-        }
-
-        // start the session and the calculations
         session_start();
 
-        $subjects = isset($_POST['subjects']) 
-            ? $_POST['subjects'] #
-            : [];
-
-        $_SESSION["students"][] = [
-            "name" => $_POST['name'],
-            "subjects" => $subjects,
-            "isAdmitted" => isAdmitted($subjects),
-        ];
-
-        // functions
-        function isAdmitted($array)
-        {
-            return count($array) >= 3
-                ? false
-                : true;
+        // validating
+        if (!isset($_SESSION["students"])) {
+            header("Location: index.html");
+            exit();
         }
     ?>
 
@@ -86,19 +56,6 @@
             </tr>
         <?php endforeach; ?>
     </table>
-
-    <a 
-        class="underline block"
-        href="../index.php"
-    >
-        add a new student
-    </a>
-    <a 
-        class="underline block"
-        href="./assessment.php"
-    >
-        end assessments
-    </a>
 </body>
 
 </html>
